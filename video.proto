@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package videostream;
+
+message Void {}
+
+message HelloRequest {
+  string name = 1;
+}
+
+service VideoService {
+  rpc GetVideoContent (HelloRequest) returns (stream Video);
+}
+
+message Video {
+  bytes contentStream = 1;
+}
